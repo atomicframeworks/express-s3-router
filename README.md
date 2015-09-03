@@ -40,9 +40,9 @@ Install express-s3-router to your project via npm like a typical dependency.  Pl
     });
     
     
-Notes:
+#### Notes:
 
-    1) The configuration using a JSON file is optional. There are various ways to load configurations for AWS such using environment variables. http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
+1) The configuration using a JSON file is optional. There are various ways to load configurations for AWS such using environment variables. http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
 
     
 ## Routes
@@ -58,14 +58,12 @@ Notes:
 | /:name/:key | DELETE       | Delete file(key) from bucket(name) |
 
 
-Notes:
+#### Notes:
 
-    1) Strict routing is enabled for the purpose of manipulating files keys that end in slash "/".  For example a perfectly valid key is foo/ and an example request to get the object would be http://localhost:3000/buckets/foo/ Note the request also includes the trailing slash.
+1) Strict routing is enabled for the purpose of manipulating files keys that end in slash "/".  For example a perfectly valid key is foo/ and an example request to get the object would be http://localhost:3000/buckets/foo/ Note the request also includes the trailing slash.
 
-    2) If no root url is provided the router will simply operate from /. Adding a root url means that s3Express URL endpoints will only operate on that url.  For example if you used the example above you could get all the buckets by using the url http://localhost:3000/buckets.  If instead you provided no root url then the same operation of getting all buckets would instead just be http://localhost:3000/.
+2) If no root url is provided the router will simply operate from /. Adding a root url means that s3Express URL endpoints will only operate on that url.  For example if you used the example above you could get all the buckets by using the url http://localhost:3000/buckets.  If instead you provided no root url then the same operation of getting all buckets would instead just be http://localhost:3000/.
     
-
-
 
 ## Contributing
 
@@ -75,6 +73,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Tests
 There is a Postman collection located in /test that can be used to test the API.
+
 
 ## Release History
 
