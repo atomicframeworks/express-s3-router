@@ -1,0 +1,29 @@
+{
+  "name": "s3ExpressRouter",
+  "version": "0.1.0",
+  "description": "Amazon S3 Gateway",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "author": {
+    "name": "Kevin McGinty",
+    "email": "atomic.frameworks@gmail.com",
+    "url": "http://www.atomicframeworks.com/"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/atomicframeworks/s3ExpressRouter/blob/master/LICENSE"
+  }],
+  "bugs": {
+    "url": "https://github.com/atomicframeworks/s3ExpressRouter/issues"
+  },
+  "homepage": "https://github.com/atomicframeworks/s3ExpressRouter",
+  "dependencies": {
+    "aws-sdk": "^2.1.46"
+  },
+  "peerDependencies": {
+      "express": "^4.13.3"
+  }
+}
