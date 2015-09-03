@@ -26,7 +26,7 @@ Install express-s3-router to your project via npm like a typical dependency.  Pl
     var s3ExpressRouter = require('express-s3-router')(awsConfig);
     
     // Add the router to our app using the root url of '/buckets'
-    app.use('/buckets', s3ExpressGatewayRouter);
+    app.use('/buckets', s3ExpressRouter);
 
     // Basic Express example stuff below
     app.get('/', function (req, res) {
