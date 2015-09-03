@@ -1,7 +1,7 @@
 {
-  "name": "s3ExpressRouter",
+  "name": "express-s3-router",
   "version": "0.1.0",
-  "description": "Amazon S3 Gateway",
+  "description": "Amazon S3 Gateway via an Express Router",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

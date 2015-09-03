@@ -1,17 +1,17 @@
-s3ExpressRouter
+express-s3-router
 =========
 
 An attempt at a RESTful JSON service for working with AWS S3.  
 
-s3ExpressRouter is designed to be a drop in router for use in an Express app.  This means you need to setup an Express app to consume the router.  Abstracting the API to a router allows the flexibilty to configure the rest of the Express app freely.
+express-s3-router is designed to be a drop in router for use in an Express app.  This means you need to setup an Express app to consume the router.  Abstracting the API to a router allows the flexibilty to configure the rest of the Express app freely.
 
 The router provides basic CRUD operations with JSON responses for operations such such as listing all buckets, creating a bucket, deleting a bucket, getting bucket contents, creating a file, getting a file, and deleting a file.
 
 ## Installation
 
-Install s3ExpressRouter to your project via npm like a typical dependency.  Please note that Express is a peerDependecy so if your app will have to have that installed as well.
+Install express-s3-router to your project via npm like a typical dependency.  Please note that Express is a peerDependecy so if your app will have to have that installed as well.
 
-    npm install s3ExpressRouter --save
+    npm install express-s3-router --save
 
 ## Usage
 
@@ -23,7 +23,7 @@ Install s3ExpressRouter to your project via npm like a typical dependency.  Plea
     var awsConfig = require('./awsConfig.json');
     
     // Create a new router using the config 
-    var s3ExpressRouter = require('s3ExpressRouter')(awsConfig);
+    var s3ExpressRouter = require('express-s3-router')(awsConfig);
     
     // Add the router to our app using the root url of '/buckets'
     app.use('/buckets', s3ExpressGatewayRouter);
