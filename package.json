@@ -1,6 +1,6 @@
 {
   "name": "express-s3-router",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Amazon S3 Gateway via an Express Router",
   "main": "index.js",
   "scripts": {
@@ -13,12 +13,12 @@
   },
   "licenses": [{
     "type": "MIT",
-    "url": "https://github.com/atomicframeworks/s3ExpressRouter/blob/master/LICENSE"
+    "url": "https://github.com/atomicframeworks/express-s3-router/blob/master/LICENSE"
   }],
   "bugs": {
-    "url": "https://github.com/atomicframeworks/s3ExpressRouter/issues"
+    "url": "https://github.com/atomicframeworks/express-s3-router/issues"
   },
-  "homepage": "https://github.com/atomicframeworks/s3ExpressRouter",
+  "homepage": "https://github.com/atomicframeworks/express-s3-router",
   "repository" : { 
     "type" : "git",
     "url" : "https://github.com/atomicframeworks/express-s3-router.git"
