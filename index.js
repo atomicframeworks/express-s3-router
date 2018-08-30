@@ -4,7 +4,7 @@
 */
 (function () {
     'use strict';
-    
+
     module.exports = function (config) {
         // Set strict routing that /buckets/test/abc is not the same as /buckets/test/abc/
         // adding the slash at the end denotes creating a folder and not a file
@@ -81,13 +81,12 @@
                     href += encodeURI(content.Key);
                 }
                 
-                
                 return href;
             },
             getBucketLink = function (req, bucket) {
                 var location = getLocation(req),
                     href = location.origin;
-                
+
                 // Since we are getting a link for an item the href must end with slash
                 if (href.substr(-1) !== '/') {
                     href += '/';
@@ -103,12 +102,20 @@
                     href = location.origin + location.search;
                 return href;
             },
-            getFullKeyParam = function (params) {
+            getFullKeyParam = function (params, route) {
                 // Due to how our routing accepts arbitrary length folders 
                 // The key param could be split between params.key and params.'0'
                 // Return the combined keys
                 var restOfKey = params['0'] || '';
-                return params.key + restOfKey;
+
+                var key = params.key + restOfKey;
+
+                // Check if this route ends with a / ensure the key also does (similar to strict routing)
+                if (route.path.slice(-1) === '/' && key.slice(-1) !== '/') {
+                    key = key + '/';
+                }
+
+                return key;
             },
             // Get all buckets
             listBuckets = function (req, res) {
@@ -227,7 +234,7 @@
             getObjectInBucket = function (req, res) {
                 var s3 = new AWS.S3(),
                     bucket = req.params.name,
-                    key = getFullKeyParam(req.params),
+                    key = getFullKeyParam(req.params, req.route),
                     params = {
                         Bucket: bucket,
                         Key: key
@@ -243,7 +250,7 @@
             createObjectInBucket = function (req, res) {
                 var s3 = new AWS.S3(),
                     bucket = req.params.name,
-                    key = getFullKeyParam(req.params),
+                    key = getFullKeyParam(req.params, req.route),
                     params = {
                         Bucket: bucket,
                         Key: key,
@@ -274,7 +281,7 @@
             deleteObjectsInBucket = function (req, res) {
                 var s3 = new AWS.S3(),
                     bucket = req.params.name,
-                    key = getFullKeyParam(req.params),
+                    key = getFullKeyParam(req.params, req.route),
                     params = {
                         Bucket: bucket,
                         Delete: {
