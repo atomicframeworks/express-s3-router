@@ -6,11 +6,13 @@
     'use strict';
 
     module.exports = function (config) {
+
         // Set strict routing that /buckets/test/abc is not the same as /buckets/test/abc/
         // adding the slash at the end denotes creating a folder and not a file
         var router = require('express').Router({strict: true}),
             AWS = require('aws-sdk'),
             extend = require('util')._extend,
+			mime = require('mime-types'),
             url = require('url'),
             DEFAULT_MAX_KEYS = 1000,
             
@@ -251,6 +253,7 @@
                 var s3 = new AWS.S3(),
                     bucket = req.params.name,
                     key = getFullKeyParam(req.params, req.route),
+                    contentType = mime.lookup(key),
                     params = {
                         Bucket: bucket,
                         Key: key,
@@ -274,6 +277,11 @@
                             res.json(data);
                         }
                     };
+
+				// Set content type for object if we have one
+                if (contentType) {
+                    params.ContentType = contentType;
+                }
 
                 s3.upload(params).on('httpUploadProgress', trackUploadProgress).send(handleUploadComplete);
             },
