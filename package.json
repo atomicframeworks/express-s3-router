@@ -1,6 +1,6 @@
 {
   "name": "express-s3-router",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Amazon S3 Gateway via an Express Router",
   "main": "index.js",
   "scripts": {
